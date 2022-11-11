@@ -12,9 +12,9 @@ namespace Application
     {
         public static int price = 0;
         public static int pos = 0;
-            static void Main(string[] args)
-            {
-            
+        static void Main(string[] args)
+        {
+
             Class1 forma1 = new Class1("  Квадрат", 100);
             Class1 forma2 = new Class1("  Круг", 100);
             Class1 forma3 = new Class1("  Конус", 100);
@@ -88,7 +88,7 @@ namespace Application
                     color,
                     forma,
                     size,
-                    shugar, 
+                    shugar,
                     glaz,
             };
             while (true)
@@ -105,9 +105,9 @@ namespace Application
                     Console.WriteLine(podPunkt.Name);
                 }
                 strelka();
-                Zakaz(forma1, color1,size1,shugar1,glaz1);
+                Zakaz(forma1, color1, size1, shugar1, glaz1);
                 Console.Clear();
-                
+
             }
 
             static int strelka()
@@ -138,7 +138,7 @@ namespace Application
                 return pos;
             }
 
-             static void Zakaz(Class1 forma, Class1 color, Class1 size, Class1 shugar, Class1 glaz)
+            static void Zakaz(Class1 forma, Class1 color, Class1 size, Class1 shugar, Class1 glaz)
             {
                 price += forma.Price;
                 price += color.Price;
@@ -155,11 +155,6 @@ namespace Application
                     Console.WriteLine("  ");
                 }
             }
-        }
-
-        private static void Zakaz(List<Class1> class1)
-        {
-            throw new NotImplementedException();
         }
     }
 }
