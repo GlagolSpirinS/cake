@@ -15,19 +15,19 @@ namespace Application
         static void Main(string[] args)
         {
 
-            Class1 forma1 = new Class1("  Квадрат", 100);
-            Class1 forma2 = new Class1("  Круг", 100);
-            Class1 forma3 = new Class1("  Конус", 100);
-            Class1 forma4 = new Class1("  Пирамида", 100);
+            Class1 forma1 = new Class1("  Квадрат",50);
+            Class1 forma2 = new Class1("  Круг",100);
+            Class1 forma3 = new Class1("  Конус", 150);
+            Class1 forma4 = new Class1("  Пирамида", 200);
 
             Class1 color1 = new Class1("  Красный", 50);
-            Class1 color2 = new Class1("  Синий", 50);
-            Class1 color3 = new Class1("  Зелёный", 50);
-            Class1 color4 = new Class1("  Белый", 50);
+            Class1 color2 = new Class1("  Синий", 100);
+            Class1 color3 = new Class1("  Зелёный", 150);
+            Class1 color4 = new Class1("  Белый", 200);
 
-            Class1 size1 = new Class1("  Маленький", 100);
-            Class1 size2 = new Class1("  Средний", 200);
-            Class1 size3 = new Class1("  Большой", 300);
+            Class1 size1 = new Class1("  Маленький", 50);
+            Class1 size2 = new Class1("  Средний", 100);
+            Class1 size3 = new Class1("  Большой", 150);
 
             Class1 shugar1 = new Class1("  Без сахара", 0);
             Class1 shugar2 = new Class1("  Среднее количество сахара", 100);
@@ -97,15 +97,15 @@ namespace Application
                 {
                     Console.WriteLine(item.Name);
                 }
-                Console.WriteLine(price);
+                Console.WriteLine("Цена торта: "+price);
                 int pos = strelka();
                 Console.Clear();
                 foreach (Class1 podPunkt in allMenus[pos].Class1)
                 {
                     Console.WriteLine(podPunkt.Name);
                 }
-                strelka();
-                Zakaz(forma1, color1, size1, shugar1, glaz1);
+                int posPodPunkt = strelka();
+                Zakaz(allMenus[pos].Class1[posPodPunkt]);
                 Console.Clear();
 
             }
@@ -113,7 +113,6 @@ namespace Application
             static int strelka()
             {
                 var key = Console.ReadKey();
-                //int pos = 1;
                 while (key.Key != ConsoleKey.Enter)
                 {
                     ClearArrows();
@@ -138,18 +137,14 @@ namespace Application
                 return pos;
             }
 
-            static void Zakaz(Class1 forma, Class1 color, Class1 size, Class1 shugar, Class1 glaz)
+            static void Zakaz(Class1 punkt)
             {
-                price += forma.Price;
-                price += color.Price;
-                price += size.Price;
-                price += shugar.Price;
-                price += glaz.Price;
+                price += punkt.Price;
             }
 
             static void ClearArrows()
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 5; i++)
                 {
                     Console.SetCursorPosition(0, i);
                     Console.WriteLine("  ");
