@@ -98,6 +98,7 @@ namespace Application
                     Console.WriteLine(item.Name);
                 }
                 Console.WriteLine("Цена торта: "+price);
+                Console.WriteLine("Для завершения заказа нажмите Backspace(стереть)");
                 int pos = strelka();
                 Console.Clear();
                 foreach (Class1 podPunkt in allMenus[pos].Class1)
@@ -129,6 +130,9 @@ namespace Application
                         case ConsoleKey.DownArrow:
                             pos++;
                             break;
+                        case ConsoleKey.Backspace:
+                            VivodFile();
+                            break;
                     }
                     Console.SetCursorPosition(0, pos);
                     Console.WriteLine("->");
@@ -149,6 +153,16 @@ namespace Application
                     Console.SetCursorPosition(0, i);
                     Console.WriteLine("  ");
                 }
+            }
+
+            static void VivodFile()
+            {
+                Console.Clear();
+                pos++;
+                Console.WriteLine("Ваш заказ сохранён на рабочем столе");
+
+                string file = "Заказ от " + DateTime.Now + "\n\t Заказ: Торт" + "\n\t Цена: " + Program.price + "\n";
+                File.AppendAllText("C:\\Users\\root\\Desktop\\zakazi\\Zakaz.txt", file);
             }
         }
     }
